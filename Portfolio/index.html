@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarat Swain Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Sarat Swain</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="theme-toggle"><i class="fas fa-moon"></i></div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Hello, I'm <span class="typing"></span></h1>
+      <p>MERN Stack Developer </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="resume.pdf" class="btn-outline">Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <p>
+        I am Sarat Swain, a passionate MERN Stack Developer building modern, responsive, and interactive web applications. I specialize in React, Node.js, Express, and MongoDB to deliver scalable full-stack solutions.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <img src="./images/eco.png" alt="E-commerce Project">
+        <div class="project-overlay">
+          <h3>E-commerce Website</h3>
+          <p>Full-stack E-commerce platform using MERN stack.</p>
+          <button class="btn-small" onclick="showProject('E-commerce Website')">View Details</button>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="./images/movies.png" alt="Netflix Project">
+        <div class="project-overlay">
+          <h3>Netflix Clone</h3>
+          <p>Dynamic streaming platform built with React.</p>
+          <button class="btn-small" onclick="showProject('Netflix Clone')">View Details</button>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="./images/res.png" alt="Restaurant Project">
+        <div class="project-overlay">
+          <h3>Restaurant Website</h3>
+          <p>Interactive restaurant website with menu & reservations.</p>
+          <button class="btn-small" onclick="showProject('Restaurant Website')">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">Project Title</h3>
+      <p id="modalDesc">Project description will appear here.</p>
+    </div>
+  </div>
+
+
+  <section id="skills" class="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill">
+        <i class="fab fa-react"></i>
+        <p>Html</p>
+        <div class="skill-bar"><div style="width: 90%"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fab fa-node-js"></i>
+        <p>Css</p>
+        <div class="skill-bar"><div style="width: 85%"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fas fa-database"></i>
+        <p>JavaScript</p>
+        <div class="skill-bar"><div style="width: 80%"></div></div>
+      </div>
+      <div class="skill">
+        <i class="fab fa-js"></i>
+        <p>MERN</p>
+        <div class="skill-bar"><div style="width: 95%"></div></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 Sarat Swain. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
