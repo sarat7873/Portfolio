@@ -7,6 +7,401 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  scroll-behavior: smooth;
+  background: #f9f8f8;
+  color: #100d22;
+}
+
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #107ae3;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #0651e7;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: #2818d4;
+}
+
+.theme-toggle {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #252427, #2575fc);
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: #ffeb3b;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+
+.btn,
+.btn-outline,
+.btn-small {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn {
+  background: #3bceff;
+  color: #333;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #1f4064;
+}
+
+.btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: #546c86;
+  border-color: #181a1c;
+}
+
+.btn-small {
+  background: #050f1b;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+}
+
+.btn-small:hover {
+  background: #131415;
+}
+
+
+.about {
+  padding: 100px 20px;
+  text-align: center;
+
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 200px;
+  border-radius: 50%;
+  border: 5px solid #00ff33;
+}
+
+.projects {
+  padding: 100px 20px;
+  text-align: center;
+  background: #f0f0f0;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 165, 82, 0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h3 {
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  margin-bottom: 1.5rem;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+
+.skills {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill {
+  width: 200px;
+}
+
+.skill i {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.skill-bar div {
+  height: 100%;
+  background: #007bff;
+  border-radius: 5px;
+}
+
+.contact {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.contact button {
+  width: 100%;
+}
+
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: #222;
+  color: #fff;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .about-container,
+  .projects-container,
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #f5f5f5;
+}
+
+body.dark-mode .nav-links li a {
+  color: #f5f5f5;
+}
+
+body.dark-mode .project-overlay {
+  background: rgba(0, 123, 255, 0.9);
+}
+
+body.dark-mode .skills i,
+body.dark-mode .skill-bar div {
+  color: #ffeb3b;
+  background: #ffeb3b;
+}
+
+body.dark-mode footer {
+  background: #000;
+}
+
+  </style>
 </head>
 <body>
 
@@ -138,6 +533,70 @@
     </div>
   </footer>
 
-  <script src="./script.js"></script>
+  <script src="./script.js">
+    
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+burger.addEventListener('click', () => {
+  nav.classList.toggle('nav-active');
+  burger.classList.toggle('toggle');
+});
+
+
+const typedText = document.querySelector(".typing");
+let i = 0;
+const text = "MERN Stack Developer | UI/UX Enthusiast";
+function type() {
+  if(i < text.length) {
+    typedText.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 100);
+  }
+}
+type();
+
+
+const themeBtn = document.querySelector('.theme-toggle');
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+
+function showProject(title) {
+  modalTitle.innerText = title;
+  modalDesc.innerText = `You clicked on "${title}". Here you can add more details about this project, technologies used, and live/demo links.`;
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if(event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+const contactForm = document.querySelector('.contact form');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert("Thank you! Your message has been received.");
+  contactForm.reset();
+});
+
+document.querySelectorAll('.hero .btn, .hero .btn-outline').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert("This button is clickable! You can add links or scroll behavior.");
+  });
+});
+
+  </script>
 </body>
 </html>
